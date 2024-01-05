@@ -4,74 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-            text-align: center; /* 居中文本 */
-        }
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left; /* 左对齐 */
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-        .error-message {
-            color: red;
-            margin-top: 10px;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
 </head>
 <body>
-    <div class="login-container">
-        <h1>智航团队</h1>
-        <form id="loginForm" onsubmit="return validateLogin()">
+    <div class="container">
+        <form class="login-form" onsubmit="return validateLogin()">
+            <h2>智航团队</h2>
             <div class="form-group">
                 <label for="username">账号:</label>
                 <input type="text" id="username" name="username" required>
             </div>
+
             <div class="form-group">
                 <label for="password">密码:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+
             <button type="submit">登录</button>
-            <p class="error-message" id="errorMessage"></p>
+            <p id="errorMessage" style="color: red;"></p>
         </form>
     </div>
-
     <script>
         function validateLogin() {
             var username = document.getElementById('username').value;
@@ -92,11 +45,10 @@
                 window.location.href = 'https://drowned-fish-git.github.io/ZH-team-website/';
                 return false;}
             else {
-                // 密码错误，清空输入栏并显示错误提示
                 document.getElementById('username').value = '';
                 document.getElementById('password').value = '';
                 document.getElementById('errorMessage').innerText = '账号或密码错误';
-                return false; // 防止表单提交
+                return false;
             }
         }
     </script>
