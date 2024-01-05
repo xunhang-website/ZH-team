@@ -22,9 +22,10 @@
             </div>
 
             <button type="submit">登录</button>
-            <p id="errorMessage" style="color: red;"></p>
+            <p class="error-message" id="errorMessage"></p>
         </form>
     </div>
+
     <script>
         function validateLogin() {
             var username = document.getElementById('username').value;
@@ -45,10 +46,11 @@
                 window.location.href = 'https://drowned-fish-git.github.io/ZH-team-website/';
                 return false;}
             else {
+                // 密码错误，清空输入栏并显示错误提示
                 document.getElementById('username').value = '';
                 document.getElementById('password').value = '';
                 document.getElementById('errorMessage').innerText = '账号或密码错误';
-                return false;
+                return false; // 防止表单提交
             }
         }
     </script>
